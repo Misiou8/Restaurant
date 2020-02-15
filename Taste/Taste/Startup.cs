@@ -15,6 +15,8 @@ using Microsoft.Extensions.Hosting;
 using Taste.DataAccess.Data.Repository.IRepository;
 using Taste.DataAccess.Data;
 using Taste.DataAccess.Data.Repository;
+using Taste.Utility;
+using Stripe;
 
 namespace Taste
 {
@@ -48,10 +50,22 @@ namespace Taste
                 options.Cookie.IsEssential = true;
             });
 
+            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
+
             services.AddMvc(options => options.EnableEndpointRouting = false)
                 .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0);
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddAuthentication().AddFacebook(facebookOptions => {
+                facebookOptions.AppId = "2563296663942819";
+                facebookOptions.AppSecret = "9fa3e718de17545166c6891dcb3c4cf1";
+            });
+
+            services.AddAuthentication().AddMicrosoftAccount(options =>
+            {
+                options.ClientId = "4889a2ed-a168-4074-8aff-46009e6e831e";
+                options.ClientSecret = "G]YR0lBHQw3?gwtkj.=yCcJVyjfnhv21";
+            });
 
         }
 
@@ -79,6 +93,7 @@ namespace Taste
             app.UseAuthorization();
 
             app.UseMvc();
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];
         }
     }
 }

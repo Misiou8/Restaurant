@@ -57,7 +57,7 @@
                     <div class="col-9">
                         @Html.DropDownListFor(m => m.MenuItemObj.MenuItem.CategoryId,
                                                 Model.MenuItemObj.CategoryList,
-                                                "- Please select a Category -",
+                                                "- Proszę wybrać kategorię -",
                                                 new { @class = "form-control" })
                         <span class="text-danger" asp-validation-for="MenuItemObj.MenuItem.CategoryId"></span>
                     </div>
@@ -69,7 +69,7 @@
                     <div class="col-9">
                         @Html.DropDownListFor(m => m.MenuItemObj.MenuItem.FoodTypeId,
                                                 Model.MenuItemObj.FoodTypeList,
-                                                "- Please select a Food Type -",
+                                                "- Proszę wybrać rodzaj jedzenia -",
                                                 new { @class = "form-control" })
                         <span class="text-danger" asp-validation-for="MenuItemObj.MenuItem.FoodTypeId"></span>
                     </div>
@@ -118,7 +118,7 @@
         });
         function ValidateInput() {
             if (document.getElementById("uploadBox").value == "") {
-                swal("Error", "Please Select an Image", "error")
+                swal("Error", "Proszę wybrać obraz", "error")
                 return false;
             }
             return true;

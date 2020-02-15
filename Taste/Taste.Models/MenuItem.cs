@@ -15,7 +15,7 @@ namespace Taste.Models
         public string Description { get; set; }
         public string Image { get; set; }
 
-        [Range(1, int.MaxValue, ErrorMessage = "Price should be greater than $1")]
+        [Range(1, int.MaxValue, ErrorMessage = "Price should be greater than 1zł")]
         public double Price { get; set; }
 
         [Display(Name = "Category Type")]

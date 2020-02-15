@@ -112,11 +112,6 @@ body {
     border-radius: 2px;
 }
 
-
-
-
-
-
 #logreg-forms {
     width: 412px;
     margin: 10vh auto;
@@ -184,12 +179,14 @@ body {
     margin-top: 10px;
 }
 
-#logreg-forms .facebook-btn {
+.facebook-btn {
     background-color: #3C589C;
+    color: white;
 }
 
-#logreg-forms .microsoft-btn {
+.microsoft-btn {
     background-color: #2672ec;
+    color: white;
 }
 
 #logreg-forms .form-reset, #logreg-forms .form-signup {
